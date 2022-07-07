@@ -1,25 +1,8 @@
-// Need to create a fucking div or card or some shit for each, needs to for five
 // Check if thats the length or how to get five
-
-// Need to search using search term from user input to api
 
 // Need to store recent searches but as a link to that search
 
 // recent searches need to persist (pain)
-
-// so index needs a search section (text form submit button), a recent searches section
-// a header, a section to display the current day, and a section
-// to display the next 5 days
-
-// needs to render to correct case ig
-
-// https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=c442dc651d0e249770d8f3b6c4442612
-
-// https://api.openweathermap.org/data/3.0/onecall
-// lat=37.44
-// lon=-94.04
-// exclude=hourly,daily
-// appid=c442dc651d0e249770d8f3b6c4442612
 
 const apiKey = "c590985f7e1c9e9101b244703998cb68";
 const weatherURL =  "https://api.openweathermap.org/data/2.5/forecast";
@@ -33,13 +16,17 @@ var dayThreeDisplay = $('#day3');
 var dayFourDisplay = $('#day4');
 var dayFiveDisplay = $('#day5');
 
+// Test static location to see if code is working 
 var locationRequestURL = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=" + apiKey;
 
+// Actual variable that takes in user input city to find weather information
 // var locationRequestURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + apiKey;
 
 var temp;
 var humidity;
 var uv;
+
+// $("button").click(function(event) {
 
 // make our request to the API
 fetch(locationRequestURL, {
@@ -67,8 +54,9 @@ fetch(locationRequestURL, {
    // temperatureText.value = responseJson.current.temp;
    $('temp').text(responseJson.temp);
    console.log(temp);
-   $('#temp1').append(temp);
-   
+   $('temp').appendTo(dayOneDisplay);
+
+
 // what I have tried --> 
 // temp.text('responseJson.temp');
 // $('#temp1').append(temp);
@@ -86,9 +74,4 @@ fetch(locationRequestURL, {
 
   });
 });
-
-
-// displaying info we need
-// 1. making an api request with certain parameters - e.g. the location
-// 2. parsing the response 
-// 3. display elements using the data from the response
+// });

@@ -24,7 +24,14 @@
 const apiKey = "c590985f7e1c9e9101b244703998cb68";
 const weatherURL =  "https://api.openweathermap.org/data/3.0/onecall";
 var city = $('#searchbar');
+
 var submitBtnEl = $('.submitBtn');
+
+var dayOneDisplay = $('#day1');
+var dayTwoDisplay = $('#day2');
+var dayThreeDisplay = $('#day3');
+var dayFourDisplay = $('#day4');
+var dayFiveDisplay = $('#day5');
 
 var locationRequestURL = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=" + apiKey;
 
@@ -62,6 +69,8 @@ fetch(locationRequestURL, {
     humidity = responseJson.current.humidity;
     uv = responseJson.current.uvi;
    // update ui
+   temp.textContent = temp.val();
+
   });
 });
 

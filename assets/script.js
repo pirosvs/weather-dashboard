@@ -22,7 +22,7 @@
 // appid=c442dc651d0e249770d8f3b6c4442612
 
 const apiKey = "c590985f7e1c9e9101b244703998cb68";
-const weatherURL =  "https://api.openweathermap.org/data/3.0/onecall";
+const weatherURL =  "https://api.openweathermap.org/data/2.5/forecast";
 var city = $('#searchbar');
 
 var submitBtnEl = $('.submitBtn');
@@ -65,11 +65,24 @@ fetch(locationRequestURL, {
     // update the UI with data we get from our second request's response
     var responseJson = response.json();
    // temperatureText.value = responseJson.current.temp;
-   temp = responseJson.current.temp;
-    humidity = responseJson.current.humidity;
-    uv = responseJson.current.uvi;
+   $('temp').text(responseJson.temp);
+   console.log(temp);
+   $('#temp1').append(temp);
+   
+// what I have tried --> 
+// temp.text('responseJson.temp');
+// $('#temp1').append(temp);
+
+// $('temp').text(responseJson.temp); 
+// temp.textContent = responseJson.temp;
+// all of these but with responseJson.current.temp;
+// temp.textContent = temp.val();
+// temp.textContent = temp.val(responseJson.temp);
+// temp.text(temp.val(responseJson.temp));
+
+    humidity = responseJson.humidity;
+    uv = responseJson.uvi;
    // update ui
-   temp.textContent = temp.val();
 
   });
 });

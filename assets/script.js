@@ -55,7 +55,8 @@ fetch(locationRequestURL, {
     return response.json();
    // temperatureText.value = responseJson.current.temp;
   }).then(function(data) {
-    temp.html(data.temp);
+    console.log(data.list[0].main.temp)
+    temp.text(data.list[0].main.temp);
 //    $('temp').text(data.temp);
    console.log(temp);
    var oneParaEl = $("p")

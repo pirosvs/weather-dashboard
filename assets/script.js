@@ -28,7 +28,7 @@ var uv;
 
 // $("button").click(function(event) {
 
-// make our request to the API
+// Make our request to the geocoding API to get coordinates for the searched city
 fetch(locationRequestURL, {
   cache: 'reload'
 }).then(function (response) {
@@ -36,26 +36,31 @@ fetch(locationRequestURL, {
   return response.json();
 //   Has an issue with line below
 }).then(function (data) {
-  // we have our lat and longitude from the city we made a request about
+  // Grab our lat and longitude from the city we made a request about 
 //   var latitude = data[0].lat;
     var testLat = 51.5073219;
   console.log(testLat);
 //   var lon = data[0].lon;
     var testLon = -0.1276474;
 
- // make a request url using the latitude and longitude we got in our response
+ // Make a request url using the latitude and longitude we got in our response -- currently using static test variables,
+ //  meant to take in commented out variables instead
   var weatherRequestURL = weatherURL + "?" + "lat=" + testLat + "&lon=" + testLon + "&appid=" + apiKey;
 
-  // make our weather request -- has an issue with line below
+  // Make our weather request -- has an issue with line below
   fetch(weatherRequestURL)
   .then(function (response) {
-    // update the UI with data we get from our second request's response
-    var responseJson = response.json();
+    // Update the UI with data we get from our second request's response
+    // var responseJson = response.json(); -- was using instead of second data
+    return response.json();
    // temperatureText.value = responseJson.current.temp;
-   $('temp').text(responseJson.temp);
+  }).then(function(data) {
+   $('temp').text(data.temp);
    console.log(temp);
-   $('temp').appendTo(dayOneDisplay);
-
+   var oneParaEl = $("p")
+   $(temp).appendTo(oneParaEl);
+   $(oneParaEl).appendTo(dayOneDisplay);
+});
 
 // what I have tried --> 
 // temp.text('responseJson.temp');
@@ -68,10 +73,10 @@ fetch(locationRequestURL, {
 // temp.textContent = temp.val(responseJson.temp);
 // temp.text(temp.val(responseJson.temp));
 
-    humidity = responseJson.humidity;
-    uv = responseJson.uvi;
+    humidity = data.humidity;
+    uv = data.uvi;
    // update ui
 
   });
-});
+// });
 // });

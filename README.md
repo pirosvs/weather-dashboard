@@ -15,7 +15,7 @@ OpenWeather 5-Day Forecast API 2.5 is used for weather information and OpenWeath
 jQuery is additionally used to facilitate writing of actual JavaScript code, and Bootstrap is used to create a more responsive and attractive layout. Minimal CSS outside of Bootstrap is also used to give more specific styles such as background colors. HTML is used to set up the page to display the information taken from the APIs.
 
 ## Credits
-Credit to learning assistant d.kang106 for helping identify the correct API call url for the weather information, as I had been stuck using the paid url instead of the free one and getting stuck on 401 errors because of it. Credit as well to learning assistant dsalas for pointing out why my response data was not pointing correctly.
+Credit to learning assistant d.kang106 for helping identify the correct API call url for the weather information, as I had been stuck using the paid url instead of the free one and getting stuck on 401 errors because of it. Credit as well to learning assistant dsalas for pointing out why my response data was not pointing correctly. Credit lastly to my housemate Lyra for helping me understand how to link the information obtained from the geocoding API to the weather API link.
 
 ## License
 This project falls under the MIT license.

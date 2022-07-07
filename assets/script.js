@@ -22,7 +22,7 @@ var locationRequestURL = "http://api.openweathermap.org/geo/1.0/direct?q=London&
 // Actual variable that takes in user input city to find weather information
 // var locationRequestURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + apiKey;
 
-var temp;
+var temp = "";
 var humidity;
 var uv;
 
@@ -55,7 +55,8 @@ fetch(locationRequestURL, {
     return response.json();
    // temperatureText.value = responseJson.current.temp;
   }).then(function(data) {
-   $('temp').text(data.temp);
+    temp.html(data.temp);
+//    $('temp').text(data.temp);
    console.log(temp);
    var oneParaEl = $("p")
    $(temp).appendTo(oneParaEl);
